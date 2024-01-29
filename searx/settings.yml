@@ -250,8 +250,44 @@ plugins:
     active: true
 
 plugins:
-  - hostname_replace
+
+  searx.plugins.calculator.SXNGPlugin:
+    active: true
+
+  searx.plugins.infinite_scroll.SXNGPlugin:
+    active: false
+
+  searx.plugins.hash_plugin.SXNGPlugin:
+    active: true
+
+  searx.plugins.self_info.SXNGPlugin:
+    active: true
+
+  searx.plugins.unit_converter.SXNGPlugin:
+    active: true
+
+  searx.plugins.ahmia_filter.SXNGPlugin:
+    active: true
+
+  searx.plugins.hostnames.SXNGPlugin:
+    active: true
+
+  searx.plugins.time_zone.SXNGPlugin:
+    active: true
+
+  searx.plugins.oa_doi_rewrite.SXNGPlugin:
+    active: false
+
+  searx.plugins.tor_check.SXNGPlugin:
+    active: false
+
+  searx.plugins.tracker_url_remover.SXNGPlugin:
+    active: true
+
+plugins:
   - no_media
+  - no_wikipedia
+  - hostname_replace
 
 # Comment or un-comment plugin to activate / deactivate by default.
 #
@@ -262,6 +298,7 @@ enabled_plugins:
   - 'Ahmia blacklist'  # activation depends on outgoing.using_tor_proxy
   - 'No Media Plugin'
   - 'Hostname replace'
+  - 'No Wikipedia'
 #   # these plugins are disabled if nothing is configured ..
 #   - 'Hostname replace'  # see hostname_replace configuration below
 #   - 'Open Access DOI rewrite'
@@ -273,9 +310,9 @@ enabled_plugins:
 
 # Configuration of the "Hostnames plugin":
 #
-# hostnames:
+# #   hostnames:
 #   replace:
-#     '(.*\.)?youtube\.com$': 'yt.example.com'
+##     '(.*\.)?youtube\.com$': 'yt.example.com'
 #     '(.*\.)?youtu\.be$': 'yt.example.com'
 #     '(.*\.)?reddit\.com$': 'teddit.example.com'
 #     '(.*\.)?redd\.it$': 'teddit.example.com'
