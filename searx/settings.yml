@@ -201,8 +201,8 @@ outgoing:
 #   https://docs.searxng.org/dev/plugins.html
 #
 plugins:
-  - hostname_replace
   - no_media
+  - no_wikipedia
 
 # Comment or un-comment plugin to activate / deactivate by default.
 #
@@ -213,6 +213,7 @@ enabled_plugins:
   - 'Ahmia blacklist'  # activation depends on outgoing.using_tor_proxy
   - 'No Media Plugin'
   - 'Hostname replace'
+  - 'No Wikipedia'
 #   # these plugins are disabled if nothing is configured ..
 #   - 'Hostname replace'  # see hostname_replace configuration below
 #   - 'Open Access DOI rewrite'
@@ -224,8 +225,8 @@ enabled_plugins:
 
 # Configuration of the "Hostname replace" plugin:
 #
-hostname_replace:
-  '(.*\.)?wikipedia\.org': false
+#   hostname_replace:
+#  '(.*\.)?wikipedia\.org': false
 #   '(.*\.)?youtube\.com$': 'invidious.example.com'
 #   '(.*\.)?youtu\.be$': 'invidious.example.com'
 #   '(.*\.)?youtube-noocookie\.com$': 'yotter.example.com'
