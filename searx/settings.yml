@@ -200,19 +200,19 @@ outgoing:
 # External plugin configuration, for more details see
 #   https://docs.searxng.org/dev/plugins.html
 #
-# plugins:
-#   - plugin1
-#   - plugin2
-#   - ...
+plugins:
+  - hostname_replace
+  - no_media
 
 # Comment or un-comment plugin to activate / deactivate by default.
 #
-# enabled_plugins:
-#   # these plugins are enabled if nothing is configured ..
-#   - 'Hash plugin'
-#   - 'Self Information'
-#   - 'Tracker URL remover'
-#   - 'Ahmia blacklist'  # activation depends on outgoing.using_tor_proxy
+enabled_plugins:
+  - 'Hash plugin'
+  - 'Self Information'
+  - 'Tracker URL remover'
+  - 'Ahmia blacklist'  # activation depends on outgoing.using_tor_proxy
+  - 'No Media Plugin'
+  - 'Hostname replace'
 #   # these plugins are disabled if nothing is configured ..
 #   - 'Hostname replace'  # see hostname_replace configuration below
 #   - 'Open Access DOI rewrite'
@@ -224,7 +224,8 @@ outgoing:
 
 # Configuration of the "Hostname replace" plugin:
 #
-# hostname_replace:
+hostname_replace:
+  '(.*\.)?wikipedia\.org': false
 #   '(.*\.)?youtube\.com$': 'invidious.example.com'
 #   '(.*\.)?youtu\.be$': 'invidious.example.com'
 #   '(.*\.)?youtube-noocookie\.com$': 'yotter.example.com'
@@ -233,6 +234,69 @@ outgoing:
 #   '(www\.)?twitter\.com$': 'nitter.example.com'
 #   # to remove matching host names from result list, set value to false
 #   'spam\.example\.com': false
+
+# Configuration of the "No Media" plugin:
+#
+no_media:
+  - 'cnn.com'
+  - 'nytimes.com'
+  - 'foxnews.com'
+  - 'washingtonpost.com'
+  - 'nbcnews.com'
+  - 'bbc.com'
+  - 'usatoday.com'
+  - 'huffpost.com'
+  - 'abcnews.go.com'
+  - 'reuters.com'
+  - 'cbsnews.com'
+  - 'politico.com'
+  - 'npr.org'
+  - 'theguardian.com'
+  - 'bloomberg.com'
+  - 'time.com'
+  - 'latimes.com'
+  - 'espn.com'
+  - 'news.yahoo.com'
+  - 'cnbc.com'
+  - 'forbes.com'
+  - 'thehill.com'
+  - 'businessinsider.com'
+  - 'apnews.com'
+  - 'buzzfeednews.com'
+  - 'vox.com'
+  - 'wsj.com'
+  - 'theatlantic.com'
+  - 'usatoday.com'
+  - 'nypost.com'
+  - 'nationalgeographic.com'
+  - 'mashable.com'
+  - 'independent.co.uk'
+  - 'economist.com'
+  - 'theintercept.com'
+  - 'thedailybeast.com'
+  - 'cnet.com/news'
+  - 'vice.com/en_us'
+  - 'slate.com'
+  - 'theverge.com'
+  - 'techcrunch.com'
+  - 'aljazeera.com'
+  - 'mercurynews.com'
+  - 'gizmodo.com'
+  - 'axios.com'
+  - 'fivethirtyeight.com'
+  - 'wired.com'
+  - 'bostonglobe.com'
+  - 'theonion.com'
+  - 'salon.com'
+  - 'tvtonight.com.au'
+  - 'dailytimes'
+  - 'dailymail'
+  - 'pbs.com'
+  - 'news.un'
+  - 'thesun.co.uk'
+  - 'nymag.com'
+  - 'abc.net'
+  - 'vanityfair'
 
 checker:
   # disable checker when in debug mode
