@@ -249,6 +249,27 @@ plugins:
   searx.plugins.tracker_url_remover.SXNGPlugin:
     active: true
 
+plugins:
+  - hostname_replace
+  - no_media
+
+# Comment or un-comment plugin to activate / deactivate by default.
+#
+enabled_plugins:
+  - 'Hash plugin'
+  - 'Self Information'
+  - 'Tracker URL remover'
+  - 'Ahmia blacklist'  # activation depends on outgoing.using_tor_proxy
+  - 'No Media Plugin'
+  - 'Hostname replace'
+#   # these plugins are disabled if nothing is configured ..
+#   - 'Hostname replace'  # see hostname_replace configuration below
+#   - 'Open Access DOI rewrite'
+#   - 'Tor check plugin'
+#   # Read the docs before activate: auto-detection of the language could be
+#   # detrimental to users expectations / users can activate the plugin in the
+#   # preferences if they want.
+#   - 'Autodetect search language'
 
 # Configuration of the "Hostnames plugin":
 #
