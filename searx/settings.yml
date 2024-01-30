@@ -143,8 +143,8 @@ ui:
   # Open result links in a new tab by default
   # results_on_new_tab: false
   theme_args:
-    # style of simple theme: auto, light, dark, black
-    simple_style: auto
+    # style of simple theme: auto, light, dark
+    simple_style: dark
   # Perform search immediately if a category selected.
   # Disable to select multiple categories at once and start the search manually.
   search_on_category_select: true
@@ -579,6 +579,7 @@ engines:
     # add "list" to the array to get results in the results list
     display_type: ["infobox"]
     categories: [general]
+    disabled: true
 
   - name: bilibili
     engine: bilibili
@@ -2723,7 +2724,7 @@ engines:
     categories: [general, wikimedia]
     base_url: "https://{language}.wikibooks.org/"
     search_type: text
-    disabled: true
+    disabled: false
     about:
       website: https://www.wikibooks.org/
       wikidata_id: Q367
@@ -2750,6 +2751,15 @@ engines:
     about:
       website: https://www.wikiquote.org/
       wikidata_id: Q369
+
+  - name: wikispooks
+    engine: wikispooks
+    weight: 0.5
+    shortcut: spooks
+    categories: [general, wikimedia]
+    base_url: "https://{language}.wikiquote.org/"
+    search_type: text
+    disabled: false
 
   - name: wikisource
     engine: mediawiki
