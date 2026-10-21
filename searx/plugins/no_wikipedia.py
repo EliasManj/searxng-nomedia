@@ -1,52 +1,45 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
-# lint: pylint
-"""A plugin to remove wikipedia results from search.
+"""A plugin to remove Wikipedia results from search.
 
 Enable in ``settings.yml``:
 
 .. code:: yaml
 
-  enabled_plugins:
-    ..
-    - 'No Wikipedia'
+   plugins:
+     searx.plugins.no_wikipedia.SXNGPlugin:
+       active: true
 
 """
 
-import re
-from flask_babel import gettext
-from httpx import HTTPError
-from searx.network import get
-from searx import settings
+import typing as t
 
-default_on = True
+from flask_babel import gettext  # pyright: ignore[reportUnknownVariableType]
 
-name = gettext("No Wikipedia")
-'''Translated name of the plugin'''
+from searx.plugins import Plugin, PluginInfo
 
-plugin_id = 'no_wikipedia'
+if t.TYPE_CHECKING:
+    from searx.search import SearchWithPlugins
+    from searx.extended_types import SXNG_Request
+    from searx.result_types import Result
+    from searx.plugins import PluginCfg
 
-description = gettext(
-    "This plugin removes all results from wikipedia"
-)
-'''Translated description of the plugin.'''
 
-preference_section = 'query'
-'''The preference section where the plugin is shown.'''
+@t.final
+class SXNGPlugin(Plugin):
+    """Removes all results from wikipedia.org."""
 
-query_keywords = ['no-wikipedia']
-'''Query keywords shown in the preferences.'''
+    id = "no_wikipedia"
 
-query_examples = ''
-'''Query examples shown in the preferences.'''
+    def __init__(self, plg_cfg: "PluginCfg") -> None:
+        super().__init__(plg_cfg)
+        self.info = PluginInfo(
+            id=self.id,
+            name=gettext("No Wikipedia"),
+            description=gettext("Removes all results from Wikipedia."),
+            preference_section="general",
+        )
 
-# Regex for exit node addresses in the list.
-reg = re.compile(r"(?<=ExitAddress )\S+")
-
-def pre_search(request, search):
-    return True
-
-def on_result(request, search, result):
-    if "url" in result:
-        if "wikipedia.org" in result["url"]:
+    def on_result(self, request: "SXNG_Request", search: "SearchWithPlugins", result: "Result") -> bool:
+        if result.parsed_url and "wikipedia.org" in result.parsed_url.netloc:
             return False
-    return True
+        return True

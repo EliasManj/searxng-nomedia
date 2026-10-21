@@ -249,64 +249,63 @@ plugins:
   searx.plugins.tracker_url_remover.SXNGPlugin:
     active: true
 
-plugins:
-
-  searx.plugins.calculator.SXNGPlugin:
+  searx.plugins.no_media.SXNGPlugin:
     active: true
 
-  searx.plugins.infinite_scroll.SXNGPlugin:
-    active: false
-
-  searx.plugins.hash_plugin.SXNGPlugin:
+  searx.plugins.no_wikipedia.SXNGPlugin:
     active: true
 
-  searx.plugins.self_info.SXNGPlugin:
-    active: true
-
-  searx.plugins.unit_converter.SXNGPlugin:
-    active: true
-
-  searx.plugins.ahmia_filter.SXNGPlugin:
-    active: true
-
-  searx.plugins.hostnames.SXNGPlugin:
-    active: true
-
-  searx.plugins.time_zone.SXNGPlugin:
-    active: true
-
-  searx.plugins.oa_doi_rewrite.SXNGPlugin:
-    active: false
-
-  searx.plugins.tor_check.SXNGPlugin:
-    active: false
-
-  searx.plugins.tracker_url_remover.SXNGPlugin:
-    active: true
-
-plugins:
-  - no_media
-  - no_wikipedia
-  - hostname_replace
-
-# Comment or un-comment plugin to activate / deactivate by default.
-#
-enabled_plugins:
-  - 'Hash plugin'
-  - 'Self Information'
-  - 'Tracker URL remover'
-  - 'Ahmia blacklist'  # activation depends on outgoing.using_tor_proxy
-  - 'No Media Plugin'
-  - 'Hostname replace'
-  - 'No Wikipedia'
-#   # these plugins are disabled if nothing is configured ..
-#   - 'Hostname replace'  # see hostname_replace configuration below
-#   - 'Open Access DOI rewrite'
-#   - 'Tor check plugin'
-#   # Read the docs before activate: auto-detection of the language could be
-#   # detrimental to users expectations / users can activate the plugin in the
-#   # preferences if they want.
-#   - 'Autodetect search language'
+no_media:
+  - 'cnn.com'
+  - 'nytimes.com'
+  - 'foxnews.com'
+  - 'washingtonpost.com'
+  - 'nbcnews.com'
+  - 'bbc.com'
+  - 'usatoday.com'
+  - 'huffpost.com'
+  - 'abcnews.go.com'
+  - 'reuters.com'
+  - 'cbsnews.com'
+  - 'politico.com'
+  - 'npr.org'
+  - 'theguardian.com'
+  - 'bloomberg.com'
+  - 'time.com'
+  - 'latimes.com'
+  - 'espn.com'
+  - 'news.yahoo.com'
+  - 'cnbc.com'
+  - 'forbes.com'
+  - 'thehill.com'
+  - 'businessinsider.com'
+  - 'apnews.com'
+  - 'buzzfeednews.com'
+  - 'vox.com'
+  - 'wsj.com'
+  - 'theatlantic.com'
+  - 'usatoday.com'
+  - 'nypost.com'
+  - 'nationalgeographic.com'
+  - 'mashable.com'
+  - 'independent.co.uk'
+  - 'economist.com'
+  - 'theintercept.com'
+  - 'thedailybeast.com'
+  - 'cnet.com/news'
+  - 'vice.com/en_us'
+  - 'slate.com'
+  - 'theverge.com'
+  - 'techcrunch.com'
+  - 'aljazeera.com'
+  - 'mercurynews.com'
+  - 'gizmodo.com'
+  - 'axios.com'
+  - 'fivethirtyeight.com'
+  - 'wired.com'
+  - 'bostonglobe.com'
+  - 'theonion.com'
+  - 'salon.com'
 
 # Configuration of the "Hostnames plugin":
 #
